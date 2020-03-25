@@ -121,22 +121,4 @@ if __name__ == "__main__":
     loop.close()
 
 
-#    outlist = []
-#
-#    filters = sorted(set(args.filter or []), reverse=True)
-#    for i, values in enumerate(grades):
-#        for j in filters:
-#            del values[j - 1]
-#        if not args.no_username:
-#            values = [users[i][0]] + values
-#        outlist.append(SEPARATORS[args.separator].join(values))
-#    
-#    DataFrame(outlist).to_clipboard(index=False,header=False)
-
-
-
-
-
-
-
 
