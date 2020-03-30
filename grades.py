@@ -33,7 +33,7 @@ async def scores(session, course, lab, account):
         "userID" : account
     }) as response:
         body = html.unescape(await response.text()).replace("- - - - - -", "0 / 0")
-        scores = re.findall(r"(?<=\>)\d+\s\/\s\d+", body)
+        scores = re.findall(r"(?<=\>)[0-9\.]+\s\/\s[0-9\.]+", body)
         return (account, scores[:-1], scores[-1])
 
 async def get_c_accounts(session, course, section, lab):
@@ -69,7 +69,6 @@ async def main(argv):
     parser.add_argument("-e", "--exercises", type=lambda x: [int(ex)-1 for ex in x.split(',')], help="Comma-separated list of exercises to include")
     args = parser.parse_args()
 
-    #usr = tuple(input().split()) 
     usr = input("Username: ")
     pwd = getpass.getpass()
 
